@@ -10,6 +10,8 @@ class BaseModel:
 
     def __init__(self, *args, **kwargs):
         """Initializes a new instance of the BaseModel class"""
+        self.my_number = 0
+        self.name = None
         if kwargs:
             for key, value in kwargs.items():
                 if key == "created_at":
@@ -28,11 +30,11 @@ class BaseModel:
     def __str__(self):
         """Returns a string representation of the instance"""
         d = {
-            "my_number": self.my_number,
-            "name": self.name,
-            "updated_at": self.updated_at,
             "id": self.id,
-            "created_at": self.created_at
+            "created_at": self.created_at,
+            "my_number": self.my_number,
+            "updated_at": self.updated_at,
+            "name": self.name
         }
         return "[{}] ({}) {}".format(
             self.__class__.__name__, self.id, d)
@@ -44,11 +46,11 @@ class BaseModel:
     def to_dict(self):
         """Returns a dictionary representation of the instance"""
         d = {
-            "my_number": self.my_number,
-            "name": self.name,
-            "__class__": self.__class__.__name__,
-            "updated_at": self.updated_at.isoformat(),
             "id": self.id,
-            "created_at": self.created_at.isoformat()
+            "created_at": self.created_at,
+            "__class__": self.__class__.__name__,
+            "my_number": self.my_number,
+            "updated_at": self.updated_at,
+            "name": self.name
         }
         return d
