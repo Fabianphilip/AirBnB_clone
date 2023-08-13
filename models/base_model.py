@@ -50,10 +50,10 @@ class BaseModel:
         """Returns a dictionary representation of the instance"""
         d = {
             "id": self.id,
-            "created_at": self.created_at,
+            "created_at": self.created_at.isoformat(),
             "__class__": self.__class__.__name__,
             "my_number": self.my_number,
-            "updated_at": self.updated_at,
+            "updated_at": self.updated_at.isoformat(),
             "name": self.name
         }
         return d
